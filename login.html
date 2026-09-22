@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar | Amigo Fiel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="login-shell">
+      <section class="login-art" aria-label="Amigo Fiel">
+        <a class="brand" href="login.html"><span class="brand-mark">AF</span><span><strong>amigo fiel</strong><small>clinica veterinaria</small></span></a>
+        <div class="welcome-copy"><p class="eyebrow">GESTÃO COM CUIDADO</p><h1>Mais tempo para cuidar do que importa.</h1><p>Organize a rotina da sua clínica em um só lugar, com leveza e clareza.</p></div>
+        <div class="paw-mark">🐾</div>
+      </section>
+      <section class="login-panel">
+        <div class="login-card">
+          <p class="eyebrow" id="form-eyebrow">BEM-VINDA DE VOLTA</p>
+          <h2 id="form-title">Entre na sua conta</h2>
+          <p class="intro" id="form-intro">Acesse o painel da Amigo Fiel para continuar.</p>
+          <form id="login-form">
+            <label>E-mail<input name="email" type="email" autocomplete="email" placeholder="voce@clinica.com" required /></label>
+            <label>Senha<div class="password-field"><input name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required minlength="6" /><button type="button" id="toggle-password" aria-label="Mostrar senha">Mostrar</button></div></label>
+            <p class="login-error" id="login-error" role="alert"></p>
+            <button class="login-button" type="submit">Entrar no painel <span>→</span></button>
+          </form>
+          <form id="signup-form" hidden>
+            <label>Nome completo<input name="name" type="text" autocomplete="name" placeholder="Seu nome" required minlength="3" /></label>
+            <label>E-mail<input name="email" type="email" autocomplete="email" placeholder="voce@clinica.com" required /></label>
+            <label>Senha<div class="password-field"><input name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required minlength="6" /><button type="button" class="signup-password-toggle" aria-label="Mostrar senha">Mostrar</button></div></label>
+            <p class="login-error" id="signup-error" role="alert"></p>
+            <button class="login-button" type="submit">Criar meu perfil <span>→</span></button>
+          </form>
+          <button class="account-switch" id="account-switch" type="button">Ainda não tenho um perfil · Criar conta</button>
+        </div>
+        <small class="copyright">Amigo Fiel · Gestão veterinária</small>
+      </section>
+    </main>
+    <script src="login.js"></script>
+  </body>
+</html>

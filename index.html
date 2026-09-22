@@ -26,7 +26,7 @@
         </nav>
         <div class="sidebar-footer">
           <div class="help-card"><span class="help-icon">?</span><strong>Precisa de ajuda?</strong><p>Fale com o suporte da equipe.</p><button class="text-button">Abrir suporte <span>→</span></button></div>
-          <div class="profile"><span class="avatar">MC</span><span><strong>Marina Costa</strong><small>Administradora</small></span><button class="icon-button" aria-label="Opcoes do perfil">•••</button></div>
+          <div class="profile"><span class="avatar">MC</span><span class="profile-info"><strong>Marina Costa</strong><small>Administradora</small></span><button class="icon-button profile-menu-button" id="profile-menu-button" aria-label="Abrir opcoes do perfil" aria-expanded="false">•••</button><div class="profile-menu" id="profile-menu" hidden><p>Conta atual</p><strong>Marina Costa</strong><button id="switch-account" type="button">⇄ <span>Trocar conta</span></button><button id="profile-logout" type="button">↪ <span>Sair</span></button></div></div>
         </div>
       </aside>
 
@@ -37,7 +37,7 @@
         </header>
 
         <section id="inicio" class="page-heading">
-          <div><p class="eyebrow">TERÇA-FEIRA, 24 DE SETEMBRO</p><h1>Bom dia, Marina <span>✦</span></h1><p class="muted">Aqui está o resumo da sua clínica hoje.</p></div>
+          <div><p class="eyebrow">TERÇA-FEIRA, 24 DE SETEMBRO</p><h1>Bom dia, <span id="welcome-name">Marina</span> <span>✦</span></h1><p class="muted">Aqui está o resumo da sua clínica hoje.</p></div>
           <button class="primary-button" id="open-modal"><span>＋</span> Novo atendimento</button>
         </section>
 
@@ -72,6 +72,7 @@
     </div>
 
     <dialog id="appointment-modal"><form method="dialog" id="appointment-form"><div class="modal-heading"><div><p class="eyebrow">AGENDA</p><h2>Novo atendimento</h2></div><button class="close-button" value="cancel" aria-label="Fechar">×</button></div><label>Paciente<input name="patient" required placeholder="Nome do paciente" /></label><label>Procedimento<select name="procedure"><option>Consulta clínica</option><option>Vacinação</option><option>Retorno</option><option>Banho e tosa</option></select></label><div class="form-row"><label>Horário<input name="time" required type="time" value="15:00" /></label><label>Tutor<input name="owner" required placeholder="Nome do tutor" /></label></div><button class="primary-button full-button" value="default">Adicionar à agenda</button></form></dialog>
+    <dialog id="patient-modal"><form method="dialog" id="patient-form"><div class="modal-heading"><div><p class="eyebrow">PACIENTES</p><h2>Cadastrar paciente</h2></div><button class="close-button" value="cancel" aria-label="Fechar">×</button></div><label>Nome do paciente<input name="patient" required placeholder="Ex.: Nina" /></label><div class="form-row"><label>Espécie<select name="species"><option>Cão</option><option>Gato</option><option>Coelho</option><option>Outro</option></select></label><label>Idade<input name="age" required type="number" min="0" max="40" placeholder="Anos" /></label></div><label>Tutor<input name="owner" required placeholder="Nome do responsável" /></label><button class="primary-button full-button" value="default">Cadastrar paciente</button></form></dialog>
     <div class="toast" id="toast" role="status"></div>
     <script src="app.js"></script>
   </body>
