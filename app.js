@@ -16,6 +16,8 @@ const form = document.querySelector("#appointment-form");
 const patientModal = document.querySelector("#patient-modal");
 const patientForm = document.querySelector("#patient-form");
 const toast = document.querySelector("#toast");
+const profileMenuButton = document.querySelector("#profile-menu-button");
+const profileMenu = document.querySelector("#profile-menu");
 
 function getAppointments() {
   return JSON.parse(localStorage.getItem("amigo-fiel-appointments") || "null") || defaultAppointments;
@@ -39,8 +41,24 @@ function showToast(message) {
 }
 
 document.querySelector("#open-modal").addEventListener("click", () => modal.showModal());
-document.querySelector("#logout-link").addEventListener("click", () => {
+function leaveAccount() {
   sessionStorage.removeItem("amigo-fiel-auth");
+  window.location.replace("login.html");
+}
+
+profileMenuButton.addEventListener("click", () => {
+  const isOpen = profileMenu.hidden;
+  profileMenu.hidden = !isOpen;
+  profileMenuButton.setAttribute("aria-expanded", String(isOpen));
+});
+
+document.querySelector("#switch-account").addEventListener("click", leaveAccount);
+document.querySelector("#profile-logout").addEventListener("click", leaveAccount);
+document.addEventListener("click", (event) => {
+  if (!profileMenu.contains(event.target) && event.target !== profileMenuButton) {
+    profileMenu.hidden = true;
+    profileMenuButton.setAttribute("aria-expanded", "false");
+  }
 });
 
 document.querySelectorAll(".close-button").forEach((button) => {
