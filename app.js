@@ -18,6 +18,20 @@ const patientForm = document.querySelector("#patient-form");
 const toast = document.querySelector("#toast");
 const profileMenuButton = document.querySelector("#profile-menu-button");
 const profileMenu = document.querySelector("#profile-menu");
+const currentProfile = JSON.parse(sessionStorage.getItem("amigo-fiel-profile") || "null");
+
+if (currentProfile) {
+  const profileName = document.querySelector(".profile-info strong");
+  const profileAvatar = document.querySelector(".avatar");
+  const profileMenuName = document.querySelector(".profile-menu > strong");
+  const welcomeName = document.querySelector("#welcome-name");
+  const nameParts = currentProfile.name.trim().split(/\s+/);
+  const initials = nameParts.slice(0, 2).map((part) => part[0]).join("").toUpperCase();
+  profileName.textContent = currentProfile.name;
+  profileAvatar.textContent = initials;
+  profileMenuName.textContent = currentProfile.name;
+  welcomeName.textContent = currentProfile.name.split(/\s+/)[0];
+}
 
 function getAppointments() {
   return JSON.parse(localStorage.getItem("amigo-fiel-appointments") || "null") || defaultAppointments;
@@ -43,6 +57,7 @@ function showToast(message) {
 document.querySelector("#open-modal").addEventListener("click", () => modal.showModal());
 function leaveAccount() {
   sessionStorage.removeItem("amigo-fiel-auth");
+  sessionStorage.removeItem("amigo-fiel-profile");
   window.location.replace("login.html");
 }
 

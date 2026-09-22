@@ -18,16 +18,23 @@
       </section>
       <section class="login-panel">
         <div class="login-card">
-          <p class="eyebrow">BEM-VINDA DE VOLTA</p>
-          <h2>Entre na sua conta</h2>
-          <p class="intro">Acesse o painel da Amigo Fiel para continuar.</p>
+          <p class="eyebrow" id="form-eyebrow">BEM-VINDA DE VOLTA</p>
+          <h2 id="form-title">Entre na sua conta</h2>
+          <p class="intro" id="form-intro">Acesse o painel da Amigo Fiel para continuar.</p>
           <form id="login-form">
             <label>E-mail<input name="email" type="email" autocomplete="email" placeholder="voce@clinica.com" required /></label>
             <label>Senha<div class="password-field"><input name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required minlength="6" /><button type="button" id="toggle-password" aria-label="Mostrar senha">Mostrar</button></div></label>
             <p class="login-error" id="login-error" role="alert"></p>
             <button class="login-button" type="submit">Entrar no painel <span>→</span></button>
           </form>
-          <p class="demo-hint">Acesso de demonstração: <strong>admin@amigofiel.com</strong> · <strong>123456</strong></p>
+          <form id="signup-form" hidden>
+            <label>Nome completo<input name="name" type="text" autocomplete="name" placeholder="Seu nome" required minlength="3" /></label>
+            <label>E-mail<input name="email" type="email" autocomplete="email" placeholder="voce@clinica.com" required /></label>
+            <label>Senha<div class="password-field"><input name="password" type="password" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required minlength="6" /><button type="button" class="signup-password-toggle" aria-label="Mostrar senha">Mostrar</button></div></label>
+            <p class="login-error" id="signup-error" role="alert"></p>
+            <button class="login-button" type="submit">Criar meu perfil <span>→</span></button>
+          </form>
+          <button class="account-switch" id="account-switch" type="button">Ainda não tenho um perfil · Criar conta</button>
         </div>
         <small class="copyright">Amigo Fiel · Gestão veterinária</small>
       </section>
