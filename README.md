@@ -13,15 +13,20 @@ Painel web da clínica veterinária **Amigo Fiel**, desenvolvido durante a Sprin
 - Cadastro de pacientes pelo atalho de ações rápidas.
 - Persistência dos atendimentos no `localStorage` do navegador.
 - Layout responsivo para desktop e dispositivos móveis.
+- Página de login com sessão de demonstração.
 
 ## Como executar
 
 O projeto não possui dependências externas obrigatórias. Para visualizar:
 
 1. Clone o repositório.
-2. Abra o arquivo `index.html` no navegador.
+2. Abra o arquivo `login.html` no navegador.
+3. Entre com `admin@amigofiel.com` e a senha `123456`.
+4. O painel será aberto após a autenticação.
 
 Também é possível usar a extensão Live Server do VS Code para iniciar um servidor local.
+
+O botão **Sair** encerra a sessão local. Sem uma sessão válida, o acesso direto ao painel redireciona para o login.
 
 ## Estrutura
 
@@ -29,6 +34,9 @@ Também é possível usar a extensão Live Server do VS Code para iniciar um ser
 index.html   Estrutura da aplicação
 styles.css   Estilos e responsividade
 app.js       Dados, interações e cadastro de atendimentos
+login.html   Tela de autenticação
+login.css    Estilos da tela de autenticação
+login.js     Validação da sessão de demonstração
 ```
 
 ## Git e Sprint
