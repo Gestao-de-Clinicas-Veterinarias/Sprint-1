@@ -14,6 +14,7 @@ Painel web da clínica veterinária **Amigo Fiel**, desenvolvido durante a Sprin
 - Persistência dos atendimentos no `localStorage` do navegador.
 - Layout responsivo para desktop e dispositivos móveis.
 - Página de login com sessão de demonstração.
+- Menu de perfil com troca de conta e saída segura.
 
 ## Como executar
 
