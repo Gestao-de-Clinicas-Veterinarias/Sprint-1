@@ -1,3 +1,7 @@
+if (sessionStorage.getItem("amigo-fiel-auth") !== "authenticated") {
+  window.location.replace("login.html");
+}
+
 const defaultAppointments = [
   { time: "09:00", patient: "Mel", owner: "Carolina Mendes", type: "Consulta clínica", pet: "🐶", state: "Confirmado", className: "confirmed" },
   { time: "10:30", patient: "Simba", owner: "Rafael Oliveira", type: "Vacinação", pet: "🐱", state: "Confirmado", className: "confirmed" },
@@ -35,6 +39,17 @@ function showToast(message) {
 }
 
 document.querySelector("#open-modal").addEventListener("click", () => modal.showModal());
+document.querySelector("#logout-link").addEventListener("click", () => {
+  sessionStorage.removeItem("amigo-fiel-auth");
+});
+
+document.querySelectorAll(".close-button").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    button.closest("dialog").close();
+  });
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(form);
