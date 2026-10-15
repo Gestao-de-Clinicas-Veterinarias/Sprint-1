@@ -33,7 +33,7 @@
       <main class="content">
         <header class="topbar">
           <div class="mobile-brand"><span class="brand-mark">AF</span><strong>amigo fiel</strong></div>
-          <div class="top-actions"><button class="icon-button notification" aria-label="Notificacoes">♢<i></i></button><span class="date-label">Terça-feira, 24 de setembro de 2024</span></div>
+          <div class="top-actions"><button class="icon-button notification" aria-label="Notificacoes">♢<i></i></button><span class="date-label">Terça-feira, 24 de setembro de 2024</span><a class="logout-link" href="login.html" id="logout-link">Sair</a></div>
         </header>
 
         <section id="inicio" class="page-heading">
@@ -72,6 +72,7 @@
     </div>
 
     <dialog id="appointment-modal"><form method="dialog" id="appointment-form"><div class="modal-heading"><div><p class="eyebrow">AGENDA</p><h2>Novo atendimento</h2></div><button class="close-button" value="cancel" aria-label="Fechar">×</button></div><label>Paciente<input name="patient" required placeholder="Nome do paciente" /></label><label>Procedimento<select name="procedure"><option>Consulta clínica</option><option>Vacinação</option><option>Retorno</option><option>Banho e tosa</option></select></label><div class="form-row"><label>Horário<input name="time" required type="time" value="15:00" /></label><label>Tutor<input name="owner" required placeholder="Nome do tutor" /></label></div><button class="primary-button full-button" value="default">Adicionar à agenda</button></form></dialog>
+    <dialog id="patient-modal"><form method="dialog" id="patient-form"><div class="modal-heading"><div><p class="eyebrow">PACIENTES</p><h2>Cadastrar paciente</h2></div><button class="close-button" value="cancel" aria-label="Fechar">×</button></div><label>Nome do paciente<input name="patient" required placeholder="Ex.: Nina" /></label><div class="form-row"><label>Espécie<select name="species"><option>Cão</option><option>Gato</option><option>Coelho</option><option>Outro</option></select></label><label>Idade<input name="age" required type="number" min="0" max="40" placeholder="Anos" /></label></div><label>Tutor<input name="owner" required placeholder="Nome do responsável" /></label><button class="primary-button full-button" value="default">Cadastrar paciente</button></form></dialog>
     <div class="toast" id="toast" role="status"></div>
     <script src="app.js"></script>
   </body>

@@ -1,3 +1,7 @@
+if (sessionStorage.getItem("amigo-fiel-auth") !== "authenticated") {
+  window.location.replace("login.html");
+}
+
 const defaultAppointments = [
   { time: "09:00", patient: "Mel", owner: "Carolina Mendes", type: "Consulta clínica", pet: "🐶", state: "Confirmado", className: "confirmed" },
   { time: "10:30", patient: "Simba", owner: "Rafael Oliveira", type: "Vacinação", pet: "🐱", state: "Confirmado", className: "confirmed" },
@@ -6,8 +10,11 @@ const defaultAppointments = [
 ];
 
 const list = document.querySelector("#appointment-list");
+const patientList = document.querySelector(".patient-list");
 const modal = document.querySelector("#appointment-modal");
 const form = document.querySelector("#appointment-form");
+const patientModal = document.querySelector("#patient-modal");
+const patientForm = document.querySelector("#patient-form");
 const toast = document.querySelector("#toast");
 
 function getAppointments() {
@@ -32,6 +39,17 @@ function showToast(message) {
 }
 
 document.querySelector("#open-modal").addEventListener("click", () => modal.showModal());
+document.querySelector("#logout-link").addEventListener("click", () => {
+  sessionStorage.removeItem("amigo-fiel-auth");
+});
+
+document.querySelectorAll(".close-button").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    button.closest("dialog").close();
+  });
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(form);
@@ -53,8 +71,25 @@ form.addEventListener("submit", (event) => {
   showToast("Atendimento adicionado à agenda.");
 });
 
-document.querySelectorAll("#quick-patient, #quick-tutor, #quick-vaccine").forEach((button) => {
-  button.addEventListener("click", () => showToast("Este atalho estará disponível no próximo ticket."));
+document.querySelector("#quick-patient").addEventListener("click", () => patientModal.showModal());
+
+patientForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(patientForm);
+  const patient = document.createElement("div");
+  const speciesIcon = { Cão: "🐶", Gato: "🐱", Coelho: "🐰", Outro: "🐾" }[data.get("species")];
+  patient.className = "patient-row";
+  patient.innerHTML = `<span class="pet-avatar">${speciesIcon}</span><div><strong></strong><small></small></div><span class="status active-status">Ativo</span>`;
+  patient.querySelector("strong").textContent = data.get("patient");
+  patient.querySelector("small").textContent = `${data.get("species")} · ${data.get("age")} ${Number(data.get("age")) === 1 ? "ano" : "anos"} · ${data.get("owner")}`;
+  patientList.prepend(patient);
+  patientForm.reset();
+  patientModal.close();
+  showToast("Paciente cadastrado com sucesso.");
+});
+
+document.querySelectorAll("#quick-tutor, #quick-vaccine").forEach((button) => {
+  button.addEventListener("click", () => showToast("Este atalho será desenvolvido em outro ticket."));
 });
 
 renderAppointments();
